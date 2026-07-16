@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demonstração de Vitrine - TecSystem</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Vitrine online da TecSystem — soluções industriais e tecnológicas em manutenção elétrica, automação e montagem.">
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="apple-touch-icon" href="img/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --branco: #ffffff;
+      --preto: #0b0e13;
+      --azul: #2368ad;
+      --azul-escuro: #184d80;
+      --borda: #e1e5ec;
+      --header-h: 80px;
+      --tr: 0.3s ease-in-out;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Barlow', system-ui, sans-serif;
+      background: var(--preto);
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== HEADER ===== */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      width: 100%;
+      height: var(--header-h);
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--borda);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo img { height: 42px; width: auto; }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--preto);
+      transition: color var(--tr);
+    }
+
+    .nav-links a:hover { color: var(--azul); }
+
+    .nav-vitrine {
+      border: 1.5px solid var(--azul) !important;
+      color: var(--azul) !important;
+      padding: 8px 16px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background var(--tr), color var(--tr);
+    }
+    .nav-vitrine.active,
+    .nav-vitrine:hover {
+      background: var(--azul) !important;
+      color: var(--branco) !important;
+    }
+
+    .header-cta {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      background: var(--azul);
+      color: var(--branco);
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 12px 22px;
+      border-radius: 10px;
+      box-shadow: 0 10px 24px -6px rgba(35, 104, 173, 0.5);
+      transition: background var(--tr), transform var(--tr);
+    }
+    .header-cta:hover { background: var(--azul-escuro); transform: translateY(-2px); }
+
+    .hamburger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--preto);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    #mobileNav {
+      position: fixed;
+      top: var(--header-h);
+      left: 0; right: 0;
+      background: var(--branco);
+      border-bottom: 1px solid var(--borda);
+      z-index: 999;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    #mobileNav.open { max-height: 400px; }
+    #mobileNav .container {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 22px 24px 28px;
+    }
+    #mobileNav a { font-weight: 600; color: var(--preto); }
+    #mobileNav .nav-vitrine { align-self: flex-start; }
+    #mobileNav .header-cta { display: inline-flex; align-self: stretch; justify-content: center; }
+
+    @media (min-width: 1150px) {
+      .nav-links { display: flex; }
+      .header-cta { display: inline-flex; }
+      .hamburger { display: none; }
+      .logo img { height: 48px; }
+    }
+
+    /* ===== IFRAME ===== */
+    #vitrine-wrapper {
+      position: fixed;
+      top: var(--header-h);
+      left: 0; right: 0; bottom: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    #vitrine-frame {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="TecSystem — página inicial">
+        <img src="img/logo.png" alt="TecSystem - Logo">
+      </a>
+
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="index.html#inicio">Início</a>
+        <a href="index.html#sobre">Sobre</a>
+        <a href="index.html#atividades">Atividades</a>
+        <a href="index.html#diferenciais">Diferenciais</a>
+        <a href="vitrine.html" class="nav-vitrine active" aria-current="page"><i class="fas fa-store"></i> Vitrine</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+
+      <a href="https://wa.me/5567999348333" target="_blank" rel="noopener noreferrer" class="header-cta">
+        <i class="fab fa-whatsapp"></i> Fale conosco
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobileNav" aria-label="Menu mobile">
+    <div class="container">
+      <a href="index.html#inicio">Início</a>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#atividades">Atividades</a>
+      <a href="index.html#diferenciais">Diferenciais</a>
+      <a href="vitrine.html" class="nav-vitrine active" aria-current="page"><i class="fas fa-store"></i> Vitrine</a>
+      <a href="index.html#contato">Contato</a>
+      <a href="https://wa.me/5567999348333" target="_blank" rel="noopener noreferrer" class="header-cta">
+        <i class="fab fa-whatsapp"></i> Fale conosco
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== VITRINE ===== -->
+  <div id="vitrine-wrapper">
+    <iframe id="vitrine-frame" src="https://sinvaldotecsystem.egestor.com.br/vitrine/" title="Vitrine de produtos TecSystem" allowfullscreen loading="lazy"></iframe>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+
+    function resizeVitrine() {
+      const headerH = document.getElementById('header').offsetHeight;
+      const wrapper = document.getElementById('vitrine-wrapper');
+      wrapper.style.top = headerH + 'px';
+      wrapper.style.height = (window.innerHeight - headerH) + 'px';
+    }
+    resizeVitrine();
+    window.addEventListener('resize', resizeVitrine);
+  </script>
+</body>
+</html>
