@@ -453,7 +453,7 @@
             <div class="icon-box"><i class="fas fa-envelope"></i></div>
             <div>
               <h4>E-mail</h4>
-              <a href="mailto:sinvaldo@tecsystemaut.com.br">sinvaldo@tecsystemaut.com.br</a>
+              <a href="mailto:comercial@tecsystemaut.com.br">comercial@tecsystemaut.com.br</a>
             </div>
           </div>
 
@@ -490,12 +490,42 @@
           </div>
         </div>
 
-        <div class="contato-cta-card">
-          <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
+        <div class="contato-form-card">
           <h3>Vamos conversar sobre o seu projeto?</h3>
-          <p>Nossa equipe está pronta para apresentar as melhores soluções em manutenção elétrica, montagem e automação industrial para sua empresa.</p>
-          <a href="https://wa.me/5567999348333" target="_blank" rel="noopener noreferrer" class="btn btn-primario">
-            <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+          <p>Preencha o formulário abaixo que nossa equipe entrará em contato o mais breve possível.</p>
+
+          <form id="form-contato" class="form-contato" novalidate>
+            <div class="form-grupo">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-grupo">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-grupo">
+              <label for="telefone">Telefone</label>
+              <input type="tel" id="telefone" name="telefone">
+            </div>
+            <div class="form-grupo">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+            </div>
+            <!-- honeypot anti-spam: não remover, deve ficar oculto -->
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button type="submit" class="btn btn-primario">
+              <i class="fas fa-paper-plane"></i> Enviar mensagem
+            </button>
+
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <a href="https://wa.me/5567999348333" target="_blank" rel="noopener noreferrer" class="form-whatsapp-link">
+            <i class="fab fa-whatsapp"></i> Prefere falar por WhatsApp?
           </a>
         </div>
       </div>
@@ -515,7 +545,7 @@
             <a href="https://www.instagram.com/tecsystem2020/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da TecSystem"><i class="fab fa-instagram"></i></a>
             <a href="https://www.linkedin.com/in/ACoAAChK0eABHcF5-9Qj0-cHSuEeObOqC52pRtY" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da TecSystem"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://wa.me/5567999348333" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da TecSystem"><i class="fab fa-whatsapp"></i></a>
-            <a href="mailto:sinvaldo@tecsystemaut.com.br" aria-label="E-mail da TecSystem"><i class="fas fa-envelope"></i></a>
+            <a href="mailto:comercial@tecsystemaut.com.br" aria-label="E-mail da TecSystem"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
 
@@ -534,7 +564,7 @@
           <h4>Contato</h4>
           <ul>
             <li><span>WhatsApp: (67) 99934-8333</span></li>
-            <li><span>E-mail: sinvaldo@tecsystemaut.com.br</span></li>
+            <li><span>E-mail: comercial@tecsystemaut.com.br</span></li>
             <li><span>Três Lagoas, MS</span></li>
             <li><span>Segunda a sexta, das 07h às 17h</span></li>
             <li><span>CNPJ: 60.257.643/0001-47</span></li>

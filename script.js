@@ -89,3 +89,42 @@ if (!reduceMotion && !isTouch) {
     });
   });
 }
+
+// ===== FORMULÁRIO DE CONTATO =====
+const formContato = document.getElementById('form-contato');
+
+if (formContato) {
+  const statusEl = formContato.querySelector('.form-status');
+  const botaoEnviar = formContato.querySelector('button[type="submit"]');
+
+  formContato.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    statusEl.textContent = '';
+    statusEl.className = 'form-status';
+    botaoEnviar.disabled = true;
+    const textoOriginal = botaoEnviar.innerHTML;
+    botaoEnviar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+    try {
+      const resposta = await fetch('enviar-contato.php', {
+        method: 'POST',
+        body: new FormData(formContato),
+      });
+      const dados = await resposta.json();
+
+      statusEl.textContent = dados.mensagem;
+      statusEl.classList.add(dados.sucesso ? 'sucesso' : 'erro');
+
+      if (dados.sucesso) {
+        formContato.reset();
+      }
+    } catch (erro) {
+      statusEl.textContent = 'Não foi possível enviar sua mensagem. Tente novamente mais tarde.';
+      statusEl.classList.add('erro');
+    } finally {
+      botaoEnviar.disabled = false;
+      botaoEnviar.innerHTML = textoOriginal;
+    }
+  });
+}
