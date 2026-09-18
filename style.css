@@ -112,6 +112,7 @@ p { color: var(--cinza); }
 }
 
 .section-clara { background: var(--branco); }
+#produtos.section-clara { background: var(--cinza-claro); }
 .section-clara .bg-image { background-color: var(--cinza-claro); }
 .section-clara .bg-image::before {
   content: '';
@@ -199,6 +200,53 @@ p { color: var(--cinza); }
   background: var(--azul);
   color: var(--branco);
   border-color: var(--azul);
+}
+
+.catalogo-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 28px;
+  margin: 12px 0 34px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(35, 104, 173, 0.18);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 246, 249, 0.98) 100%);
+  box-shadow: var(--sombra);
+}
+
+.catalogo-cta-copy {
+  max-width: 720px;
+}
+
+.catalogo-cta-copy .tag {
+  display: inline-block;
+  color: var(--azul);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.catalogo-cta-copy h3 {
+  color: var(--preto);
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.catalogo-cta-copy p {
+  color: var(--cinza);
+  font-size: 1rem;
+}
+
+.catalogo-btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.catalogo-btn i {
+  color: inherit;
 }
 
 /* ===== HEADER ===== */
@@ -313,6 +361,17 @@ p { color: var(--cinza); }
   .hamburger { display: none; }
   .header-inner { height: 92px; }
   .logo img { height: 52px; }
+}
+
+@media (max-width: 900px) {
+  .catalogo-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .catalogo-btn {
+    width: 100%;
+  }
 }
 
 /* ===== TICKER DE DESTAQUES ===== */
@@ -703,6 +762,14 @@ p { color: var(--cinza); }
   margin: 0 auto 28px;
 }
 
+.section-clara .atividades-cta {
+  background: var(--cinza-claro);
+  border-color: var(--borda);
+}
+
+.section-clara .atividades-cta h3 { color: var(--preto); }
+.section-clara .atividades-cta p { color: var(--cinza); }
+
 /* ===== DIFERENCIAIS ===== */
 .diferenciais-grid {
   position: relative;
@@ -787,6 +854,94 @@ p { color: var(--cinza); }
 
   .vitrine-content p {
     margin: 0 0 28px;
+  }
+}
+
+/* ===== FIREBEE ===== */
+.firebee-brand {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: var(--preto);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 56px;
+}
+
+.firebee-brand-media { line-height: 0; }
+.firebee-brand-media img { width: 100%; height: auto; display: block; }
+
+.firebee-brand-content { padding: 8px 32px 40px; }
+.firebee-brand-content .tag { color: #ff5c5c; }
+.firebee-brand-content h2 { color: var(--branco); margin-bottom: 16px; }
+.firebee-brand-content p { color: rgba(255, 255, 255, 0.75); }
+.firebee-brand-content p strong { color: var(--branco); }
+
+.firebee-certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.firebee-cert-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--branco);
+}
+
+.firebee-cert-item i { color: #ff5c5c; }
+
+.produto-img {
+  width: 100%;
+  height: 190px;
+  border-radius: 12px;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.produto-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.firebee-cta.atividades-cta {
+  background: var(--preto);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.firebee-cta.atividades-cta h3 { color: var(--branco); }
+.firebee-cta.atividades-cta p { color: rgba(255, 255, 255, 0.75); }
+
+@media (min-width: 900px) {
+  .firebee-brand { flex-direction: row; align-items: center; }
+  .firebee-brand-media { flex: 0 0 42%; }
+  .firebee-brand-content { flex: 1; padding: 40px 48px 40px 0; }
+}
+
+@media (min-width: 768px) {
+  .cards-grid.produtos-firebee-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .produtos-firebee-grid > .produto-card {
+    flex: 0 1 calc((100% - 56px) / 3);
   }
 }
 
